@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluación de Llamadas de Atención al Cliente</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .checkbox-line {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .checkbox {
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #resultadoEvaluacion {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+    }
+
+    #resultadoEvaluacion h2 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    #resultadoEvaluacion p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Evaluación de Llamadas de Atención al Cliente</h1>
+    <form id="evaluacionForm">
+      <div class="section">
+        <label for="nombreEmpleado">Nombre del Empleado:</label>
+        <input type="text" id="nombreEmpleado" name="nombreEmpleado" required>
+      </div>
+      <div class="section">
+        <label for="cliente">Cliente:</label>
+        <input type="text" id="cliente" name="cliente" required>
+      </div>
+      <div class="section">
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+      </div>
+      <div class="section">
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+      </div>
+      <div class="section">
+        <h2>Aspectos Generales:</h2>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="aspectoGeneral" value="1">
+          <label for="aspectoGeneral1">El empleado se identificó adecuadamente al principio de la llamada.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="aspectoGeneral" value="1">
+          <label for="aspectoGeneral2">La duración de la llamada fue apropiada para resolver el problema del cliente.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="aspectoGeneral" value="1">
+          <label for="aspectoGeneral3">El empleado mantuvo un tono de voz adecuado durante toda la llamada.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="aspectoGeneral" value="1">
+          <label for="aspectoGeneral4">El empleado mostró empatía y comprensión hacia las preocupaciones del cliente.</label>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Comunicación:</h2>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="comunicacion" value="1">
+          <label for="comunicacion1">El empleado fue claro y conciso en su comunicación.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="comunicacion" value="1">
+          <label for="comunicacion2">Utilizó un lenguaje profesional y fácil de entender.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="comunicacion" value="1">
+          <label for="comunicacion3">Evitó el uso de jerga técnica que pudiera confundir al cliente.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="comunicacion" value="1">
+          <label for="comunicacion4">Repitió la información importante para confirmar la comprensión del cliente.</label>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Resolución de Problemas:</h2>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="resolucionProblemas" value="1">
+          <label for="resolucionProblemas1">El empleado escuchó activamente las preocupaciones del cliente.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="resolucionProblemas" value="1">
+          <label for="resolucionProblemas2">Proporcionó una solución o respuesta clara al problema planteado por el cliente.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="resolucionProblemas" value="1">
+          <label for="resolucionProblemas3">Ofreció opciones alternativas o soluciones adicionales si fuera necesario.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="resolucionProblemas" value="1">
+          <label for="resolucionProblemas4">Verificó con el cliente que el problema se resolvió satisfactoriamente antes de finalizar la llamada.</label>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Cortesía y Profesionalismo:</h2>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="cortesiaProfesionalismo" value="1">
+          <label for="cortesiaProfesionalismo1">El empleado fue cortés y amable en todo momento.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="cortesiaProfesionalismo" value="1">
+          <label for="cortesiaProfesionalismo2">Mantuvo la calma y la compostura incluso en situaciones difíciles.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="cortesiaProfesionalismo" value="1">
+          <label for="cortesiaProfesionalismo3">Se despidió cordialmente y agradeció al cliente por su llamada al finalizar la conversación.</label>
+        </div>
+        <div class="checkbox-line">
+          <input type="checkbox" class="checkbox" name="cortesiaProfesionalismo" value="1">
+          <label for="cortesiaProfesionalismo4">Ofreció información adicional sobre servicios o productos que podrían ser útiles para el cliente.</label>
+        </div>
+      </div>
+
+      <button type="submit">Generar Reporte</button>
+    </form>
+
+    <div id="resultadoEvaluacion" style="display: none;">
+      <h2>Informe de Evaluación Final</h2>
+      <p id="nombreEmpleadoInforme"></p>
+      <p id="clienteInforme"></p>
+      <p id="telefonoInforme"></p>
+      <p id="fechaInforme"></p>
+      <p id="puntajeFinal"></p>
+      <p id="resultadoFinal"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
